@@ -3,6 +3,8 @@
  */
 package com.github.fangyun.tictactoe;
 
+import java.util.Arrays;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,19 +35,24 @@ public class Board {
 				cells[i][j] = c;
 			}
 		}
-		log.debug(this.prettyString());
+		System.out.println(this.prettyString());
 	}
 
 	public String prettyString() {
 		StringBuilder sb = new StringBuilder();
+		sb.append(" ");
 		for (int i = 0; i < boardSize; i++) {
-			sb.append("\t").append(Cell.labelX(i));
+			sb.append("  ").append(Cell.labelX(i));
 		}
+		sb.append("\n");
 		for (int i = 0; i < boardSize; i++) {
-			int j = 0;
-			sb.append(Cell.labelY(j));
-			for (; j < boardSize; j++) {
-				sb.append("\t").append(cells[i][j].getValue());
+			String y = Cell.labelY(i);
+			sb.append(y);
+			char[] padding = new char[3 - y.length()];
+			Arrays.fill(padding, ' ');
+			sb.append(new String(padding)).append(cells[i][0].getValue());
+			for (int j = 1; j < boardSize; j++) {
+				sb.append("  ").append(cells[i][j].getValue());
 			}
 			sb.append("\n");
 		}

@@ -19,8 +19,7 @@ public class TicTacToe {
 		board = new Board(option.getBoardSize());
 	}
 
-	public Timer start() {
-		return new Timer();
+	public void start() {
 	}
 
 }

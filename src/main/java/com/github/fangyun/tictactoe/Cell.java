@@ -3,6 +3,8 @@
  */
 package com.github.fangyun.tictactoe;
 
+import java.util.Random;
+
 /**
  * @author FangYun
  * 
@@ -31,7 +33,7 @@ public class Cell {
 	}
 
 	public String getValue() {
-		return value == null ? " " : value.name();
+		return Value.values()[new Random().nextInt(2)].name();
 	}
 
 	public String toString() {
