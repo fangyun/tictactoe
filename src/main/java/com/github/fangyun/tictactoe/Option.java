@@ -8,17 +8,12 @@ package com.github.fangyun.tictactoe;
  *
  */
 public class Option {
-	private long gameMaxDuration = Integer.MAX_VALUE;
 	private PlayerType player1Type = PlayerType.System;
 	private PlayerType player2Type = PlayerType.System;
 	private int boardSize = 3;
 
 	public Option(String[] args) {
 
-	}
-
-	public long getGameMaxDuration() {
-		return gameMaxDuration;
 	}
 
 	public PlayerType getPlayer1Type() {
@@ -31,5 +26,13 @@ public class Option {
 
 	public int getBoardSize() {
 		return boardSize;
+	}
+
+	public Order getPlayer1Order() {
+		return Order.FIRST;
+	}
+
+	public Order getPlayer2Order() {
+		return Order.SECOND;
 	}
 }

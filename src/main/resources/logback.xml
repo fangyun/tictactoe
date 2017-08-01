@@ -6,7 +6,11 @@
 		</encoder>
 	</appender>
 
-	<root level="debug">
+	<logger name="search" level="debug" />
+	<logger name="utility" level="debug" />
+	<logger name="report" level="debug" />
+
+	<root level="info">
 		<appender-ref ref="STDOUT" />
 	</root>
 </configuration>

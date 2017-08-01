@@ -17,8 +17,15 @@ public class PlayerFactory {
 		return INSTANCE;
 	}
 
-	public Player create(PlayerType playerType) {
-		return null;
+	public Player create(PlayerType playerType, Order order, String string) {
+		try {
+			Player p = (Player) playerType.getPlayerClass().newInstance();
+			p.setOrder(order);
+			p.setName(string);
+			return p;
+		} catch (InstantiationException | IllegalAccessException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 }
